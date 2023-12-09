@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan stylesheet tambahan untuk admin panel jika diperlukan -->
+
+    <style>
+    body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            background-color: #4899f0;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .title {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .admin-panel {
+            margin-bottom: 20px;
+        }
+
+        .dashboard-section {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dashboard-item {
+            flex: 1;
+            background-color: rgb(146, 169, 209);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: rgb(15, 15, 15);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+.dashboard-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.dashboard-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.dashboard-item p {
+    font-size: 14px;
+}
+
+
+        .pengumuman-section,
+        .program-section,
+        .fasilitas-section,
+        .lembaga-section {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            flex: 1;
+            margin-right: 20px;
+        }
+
+
+        .dashboard-section h2 {
+            color: #333;
+        }
+
+
+.additional-content-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 20px; /* Sisipkan margin untuk memberikan jarak dengan elemen lain */
+}
+
+.bar-chart-container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 48%; /* Set width to 48% for two containers */
+    }
+
+    .bar-chart-container h2 {
+        margin-bottom: 10px; /* Add some space between title and bar chart */
+    }
+
+        .weather-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 200px;
+            width: 100%;
+        }
+
+        .bar-column {
+        flex: 1;
+        background-color: #4c70af;
+        margin: 0 5px;
+        transition: height 0.5s;
+    }
+
+        .bar-label {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .bar-chart-container.monthly-search {
+    margin-right: 2%; /* Jarak ke kanan */
+}
+
+.bar-chart-container.year-search {
+    margin-left: 2%; /* Jarak ke kiri */
+}
+
+
+        .pengumuman-section,
+        .program-section,
+        .fasilitas-section,
+        .lembaga-section {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .link-container a {
+            display: block;
+            color: #3a8ee6;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .additional-content-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 20px; /* Sisipkan margin untuk memberikan jarak dengan elemen lain */
+}
+
+.image-container {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+
+    .image-container {
+        background-color: #fff; /* Warna latar belakang judul kuning */
+    }
+
+    .image-info img {
+        max-width: 100%;
+        /* Gambar akan menyesuaikan lebar container tetapi tidak melebihi lebar aslinya */
+        height: auto;
+    }
+
+    .image-info {
+        text-align: center;
+    }
+        .footer {
+            background-color: #4899f0;
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .welcome-container {
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px; /* Sesuaikan lebar container sesuai kebutuhan */
+    }
+
+    .welcome-container p {
+        color: #333;
+        font-size: px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .image-container-medium {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff; /* Warna latar belakang putih */
+    padding: 20px; /* Sesuaikan padding sesuai kebutuhan */
+    border: 2px solid #ccc; /* Contoh: tambahkan border */
+    border-radius: 10px; /* Contoh: tambahkan border-radius */
+    margin-top: 20px; /* Jarak antara "Dashboard" dan "image-container-medium" */
+    margin-bottom: 20px; /* Jarak antara "image-container-medium" dan elemen berikutnya */
+}
+
+.dashboard-item-medium {
+    flex: 1;
+    background-color: rgb(146, 169, 209); /* Dark Purple */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: rgb(15, 15, 15);
+    margin-bottom: 20px; /* Jarak antara setiap dashboard-item-medium */
+}
+
+.dashboard-item-medium img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.dashboard-item-medium h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.dashboard-item-medium p {
+    font-size: 14px;
+}
+
+.dashboard-section {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-right: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href=''><img src="./IMAGE/logox.png" alt="Logo Del"></a>
+            <a href='' class="title">Admin Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Tambahkan bagian admin panel di bawah ini -->
+    <div class="admin-panel">
+        <div class="dashboard-section">
+            <h2>Dashboard</h2>
+            </div>
+
+        <div class="pengumuman-section">
+            <h2>Pengumuman</h2>
+            <div class="link-container">
+                <a href="tambah_pengunguman.html">Kelola Pengumuman</a>
+            </div>
+        </div>
+
+        <div class="program-section">
+            <h2>Program Pendidikan</h2>
+            <div class="link-container">
+                <a href="program_pendidikan.html">Kelola Program Pendidikan</a>
+            </div>
+        </div>
+
+        <div class="fasilitas-section">
+            <h2>Fasilitas</h2>
+            <div class="link-container">
+                <a href="Fasilitas.html">Kelola Fasilitas</a>
+            </div>
+            <!-- Tambahkan konten atau formulir untuk mengelola fasilitas -->
+        </div>
+
+        <div class="lembaga-section">
+            <h2>Lembaga</h2>
+            <div class="link-container">
+                <a href="Lembaga.html">Kelola Lembaga</a>
+            </div>
+            <!-- Tambahkan konten atau formulir untuk mengelola lembaga -->
+        </div>
+    </div>
+
+    <div class="welcome-container">
+        <p>Selamat Datang Kembali Admin</p>
+    </div>
+
+    <div class="dashboard-section">
+        <h2>Dashboard</h2>
+        <div class="image-container">
+            <!-- Image 1 -->
+            <div class="dashboard-item">
+                <img src="./IMAGE/f23.jpg" alt="Image 1">
+                <h3>Kantin</h3>
+                <p>Kantin Politeknik Informatika Del menyediakan menu makanan yang bergizi dan sehat untuk semua mahasiswa/i.
+                    Menu yang disediakan selalu memenuhi standard gizi, sehingga mahasiswa bisa melaksanakan aktifitas perkuliahan dengan sehat dan prima. 
+                    Setiap mahasiswa diwajibkan untuk makan di kantin tiga kali setiap harinya.</p>
+                    <p>Dalam pelaksanaan makan, mahasiswa dilatih juga untuk memiliki manner. Etika makan yang berlaku adalah sebagai berikut:
+                        a. Mahasiswa berpakaian rapi dan bersih.
+                        b. Mengikuti tata cara makan yang baik (table manner):
+                        c. Menggunakan sendok dan garpu.
+                        d. Mulut tertutup rapat pada saat mengunyah makanan.
+                        </p>
+            </div>
+            <!-- Image 2 -->
+            <div class="dashboard-item">
+                <img src="./IMAGE/foto2.jpg" alt="Image 2">
+                <h3>IT Del Sosialisasikan Program MBKM kepada Mahasiswa</h3>
+                <p>ada Kamis, 23 November 2023, Divisi Pembelajaran Diluar Kampus, UPT PP ESTEM melaksanakan sosialisasi MBKM (Merdeka Belajar Kampus Merdeka)
+                    untuk mahasiswa-mahasiswi IT Del. Sosialisasi dihadiri oleh Monalisa Pasaribu selaku Ketua UPT PP ESTEM,
+                    Eka Sinambela mewakili Panitia IISMA, Theodora Lumban Gaol dan Philipians Manurung mewakili Panitia MBKM BGI,
+                    Anggiat Tambunan dari Biro Administrasi Akademik serta Martha Tambunan selaku staff administrasi UPT PP ESTEM.
+                    MBKM IT Del mengusung tema Merdeka Bertanggungjawab. Merdeka bertanggungjawab artinya kemerdekaan belajar dan mencari ilmu dimana saja
+                </p>
+            </div>
+            <div class="dashboard-item">
+                <img src="./IMAGE/foto3.jpg" alt="Image 2">
+                <h3>IT DEL Fest & Siantar Rap Fundation</h3>
+                <p>Pelaksananan Koser di adakan pada Kamis,21 Agustus 2023,berlangsung dengan meriah sekali acara tersebut dihadiri setiap angkatan,
+                     meriahnya konser malam itu menjadi awal yang baru untuk menyambut semester yang bru saja di buka sekaligus menjadi
+                     kenangan yang sangat berati bagi rekan mahasiswa karena bisa lebih akrap satu sama lain. Acara tersebut dilaksanakan di lapangan hijau dari pagi samapai dengan selesai nya di malam hari pada puncak acara malam itu hujan tak membut mahasiswa yang hadir turun semagat , hujan malam itu membuat suasana semakin meyenangkan.
+                     tak sedikit dari rekan mahasiswa yang menari mengikuti alur lagu.
+                     </p>
+            </div>
+            <div class="dashboard-item">
+                <img src="./IMAGE/f15.jpg" alt="Image 2">
+                <h3>Title 2</h3>
+                <p>Saat kita memperhatikan lingkungan kampus di Indonesia maka mungkin hasilnya akan bertolak belakang dengan saat kita membayangkan 
+                    lingkungan kampus di negara-negara maju. Membayangkan para mahasiswa kita duduk di bawah pohon-pohon hijau dan beralaskan rumput yang segar, 
+                    atau membayangkan para mahasiswa melepaskan lelah setelah kuliah di kelas, mengistirahatkan otak mereka dari tumpukan teori sambil bermain bola,
+                     atau permainan lainnya di lapangan hijau sangat mungkin jarang kita lihat. Kampus Institut Teknologi Del (IT Del) tidak hanya berfungsi sebagai lembaga pendidikan saja.
+                     Tapi kampus Del bisa difungsikan sebagai Ruang Terbuka Hijau (RTH)</p>
+            </div>
+        </div>
+</div>
+
+    <!-- Tambahkan image container di bawah dashboard -->
+    <div class="image-container-medium">
+        <!-- Image di sebelah kiri -->
+        <div class="dashboard-item-medium">
+            <img src="./IMAGE/f20.jpg" alt="Image 4">
+            <h3>Jenderal TNI (Purn.) Luhut B</h3>
+            <p>Jenderal TNI (Purn.) Luhut B. Pandjaitan mendirikan Yayasan Simargala pada tanggal 30 Agustus 2001 di Jakarta.
+                 Simargala adalah nama desa kelahiran beliau di Huta Namora, Kecamatan Silaen, Kabupaten Toba Samosir, Sumatera Utara.
+                  Pendirian Yayasan Simargala dilandasi oleh keinginan luhur untuk meningkatkan keterampilan dan kesejahteraan masyarakat perdesaan yang kurang tersentuh pembangunan.
+                   Tekad yang kuat untuk berpartisipasi pada program pemerintahan dalam bidang pendidikan, sosial, kemanusiaan, seni dan budaya, dan kelestarian lingkungan.</p>
+        </div>
+
+        <!-- Image di sebelah kanan -->
+        <div class="dashboard-item-medium">
+            <img src="./IMAGE/f17.jpg" alt="Image 5">
+            <h3>IT DEL</h3>
+            <p>Peletakan batu pertama pembangunan gedung PI Del dilaksanakan pada tanggal 15 Maret 2001.
+                 PI Del didirikan oleh Jenderal TNI (Purn.) Luhut B. Pandjaitan, yang pada saat itu masih 
+                 menjabat sebagai Menteri Perindustrian dan Perdagangan. Di samping turut berperan sebagai inisiator penggerak pembangunan di Tapanuli,
+                  PI Del juga diharapkan dapat menginkubasi lahirnya para wiratekno (technopreneur) baru di bidang teknologi informasi dan komputer.
+                Alasan mengapa PI Del didirikan di desa pelosok Sitoluama, menurut Luhut Pandjaitan yakni:
+                 adanya keinginan untuk memberikan kesempatan kepada masyarakat pedesaan, pelosok untuk sama-sama dapat menikmati pendidikan yang berkualitas.</p>
+        </div>
+    </div>
+    <!-- Tambahkan bagian footer -->
+    <footer class="footer">
+        <h3>Kontak</h3>
+        <p>Email: info@del.ac.id</p>
+        <p>Instagram: <a href="https://www.instagram.com/institut_teknologi_del/" target="_blank">@institut_teknologi_del</a></p>
+        <p>Alamat: Institut Teknologi Del
+            Jl. Sisingamangaraja, Sitoluama
+            Laguboti, Kab. Tobasa
+            SUMUT, Indonesia
+            KODE POS: 22381
+           </p>
+    </footer>
+    <script>
+        function updateCurrentDate() {
+            var currentDateElement = document.getElementById('current-date');
+            var currentDate = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var formattedDate = currentDate.toLocaleDateString('en-US', options);
+            currentDateElement.textContent = formattedDate;
+        }
+
+        // Panggil fungsi updateCurrentDate setiap detik
+        setInterval(updateCurrentDate, 1000);
+    </script>
+    </body>
+    </html>

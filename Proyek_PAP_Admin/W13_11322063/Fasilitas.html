@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Pengumuman - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan stylesheet tambahan jika diperlukan -->
+    <style>
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-container {
+    display: flex;
+    flex-wrap: wrap; /* Membuat baris baru jika tidak cukup lebar */
+    justify-content: space-between;
+}
+.form-container,
+.image-container {
+    width: 40%;
+    padding: 20px;
+    margin: 20px 0; /* Menggunakan margin di atas dan bawah */
+    background-color: rgb(179, 201, 240);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+    .image-info img {
+    max-width: 50%; /* Mengatur lebar gambar */
+    float: left;
+    margin-right: 20px; /* Memberikan jarak antara gambar dan teks */
+}
+
+.image-info h3 {
+    margin-bottom: 10px; /* Jarak antara judul dengan teks di dalam image-info */
+}
+
+.image-info p {
+    margin-bottom: 10px; /* Jarak antara paragraf-paragraf di dalam image-info */
+}
+
+.image-info {
+    margin-left:10px;
+}
+
+.text-info {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 80%; /* Mengurangi lebar form-container pada tampilan sedang */
+    }
+}
+
+    .form-container label,
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-container button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px; /* Menambahkan radius sudut untuk membulatkan sudut tombol */
+        cursor: pointer;
+    }
+
+
+
+    .link-container button:hover {
+        background-color: #2980b9;
+    }
+
+    .result-box {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        background-color: #f5f5f5;
+        display: none;
+    }
+
+    .action-box {
+        background-color: #3498db;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-around; /* Meratakan button */
+        align-items: center;
+    }
+
+    .action-box button {
+        background-color: #fff;
+        color: #3498db;
+        border: none;
+        padding: 10px 15px; /* Sesuaikan padding agar button tidak terlalu besar */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .action-box button:hover {
+        background-color: #e3f2fd; /* Warna hover yang sesuai dengan form-container */
+    }
+
+    .calendar {
+    max-width: 100px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.month {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+}
+
+.day {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.day.holiday {
+    background-color: #e74c3c; /* Warna merah untuk hari libur */
+    color: #fff;
+}
+    .form-container {
+        width: 60%; /* Menyesuaikan lebar form-container */
+        margin: 20px auto; /* Menengahkan form-container */
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+    footer {
+    background-color:#4899f0;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px; /* Sesuaikan jarak atas */
+}
+.pusat-bahasa {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            padding: 10px;
+            background-color: rgb(137, 171, 222);
+            color: rgb(15, 15, 15);
+            border-radius: 10px;
+        }
+
+        .pusat-bahasa img {
+            max-width: 30%; /* Mengatur lebar gambar */
+            border-radius: 10px;
+        }
+
+        .pusat-bahasa .text-info {
+            text-align: left;
+            max-width: 60%; /* Mengatur lebar teks */
+        }
+        .header {
+            background-color: #4899f0;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-box {
+        background-color: #3498db;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-around; /* Meratakan button */
+        align-items: center;
+    }
+
+    .action-box button {
+        background-color: #fff;
+        color: #3498db;
+        border: none;
+        padding: 10px 15px; /* Sesuaikan padding agar button tidak terlalu besar */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .action-box button:hover {
+        background-color: #e3f2fd; /* Warna hover yang sesuai dengan form-container */
+    }
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href=''><img src="./IMAGE/logox.png" alt="Logo Del"></a>
+            <div class="title-container">
+            </div>
+            <a href='' class="title" style="color: white; font-weight: bold;">Admin Dashboard</a>
+        </div>
+    </div>
+    </div>
+    <!-- Formulir untuk membuat pengumuman -->
+    <div class="content-container">
+        <div class="form-container">
+            <h2> Kelola Fasilitas</h2>
+            <form id="ProgramPendidikanForm">
+                <label for="judul">Nama Fasilitas:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="judul">Keterangan Fasilitas:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <!-- Penambahan input gambar -->
+                <label for="gambarProdi">Gambar Fasilitas:</label>
+                <input type="file" id="gambarProdi" name="gambarProdi" accept="image/*" required>
+
+                <div class="action-box">
+                    <button onclick="window.location.href='index.html'">Kembali ke Dashboard</button>
+                    <button type="button" onclick="editFasilitas()">Edit Fasilitas</button>
+                    <button type="button" onclick="hapusFasilitas()">Hapus Fasilitas</button>
+                    <button type="button" onclick="buatFasilitas()">Buat Fasilitas</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2> Kelola Pusat Bahasa</h2>
+            <form id="ProgramPendidikanForm">
+                <label for="judul">Nama Judul:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="judul">Keterangan Judul:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <!-- Penambahan input gambar -->
+                <label for="gambarProdi">Gambar :</label>
+                <input type="file" id="gambar" name="gambar" accept="image/*" required>
+
+                <div class="action-box">
+                    <button onclick="window.location.href='index.html'">Kembali ke Dashboard</button>
+                    <button type="button" onclick="editPusat()">Edit Pusat-bahasa</button>
+                    <button type="button" onclick="hapusPusat()">Hapus Pusat-bahasa</button>
+                    <button type="button" onclick="buatPusat()">Buat Pusat-bahasa</button>
+                </div>
+            </form>
+        </div>
+        <!-- Container untuk gambar dan informasi -->
+        <div class="image-container">
+            <div class="image-info">
+                <h3 style="color: rgb(15, 15, 15);">Laboratorium  </h3>
+                <img src="./IMAGE/foto9.jpg" alt="Gambar 1">
+                                </div>
+                                <p>Laboratorium diartikan sebagai suatu tempat untuk mengadakan percobaan, 
+                                    penyelidikan, dan sebagainya yang berhubungan dengan ilmu fisika, kimia, 
+                                    dan biologi atau bidang ilmu lain </p>
+                                    <p>Visi
+                                        Menjadi Laboratorium yang terkemuka dalam Pendidikan, Penelitian, dan Pengabdian kepada Masyarakat,
+                                         di bidang Kimia dan Biokimia Pangan dan Hasil Pertanian dalam rangka pengembangan sumber daya pangan
+                                          dan hasil pertanian yang berwawasan lingkungan untuk mendukung industri pangan dan hasil pertanian serta wirausahawan di kompetisi global
+                                        
+                                        Misi
+                                        Menyelenggarakan pendidikan, penelitian, dan pengabdian kepada masyarakat di bidang kimia 
+                                        dan biokimia pangan dan hasil pertanian yang mendukung pembangunan di bidang Teknologi Pangan 
+                                        dan Hasil Pertanian yang bermutu dan mutakhir.</p><!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                            </div>
+
+                            <div class="image-container">
+                                <div class="image-info">
+                                    <h3 style="color:rgb(15, 15, 15);">Kantin </h3>
+                                    <img src="./IMAGE/foto8.jpg" alt="Gambar 1">
+                                                    <p>Kantin Politeknik Informatika Del menyediakan menu makanan yang bergizi dan sehat untuk semua mahasiswa/i.
+                                                         Menu yang disediakan selalu memenuhi standard gizi, sehingga mahasiswa bisa melaksanakan aktifitas perkuliahan dengan sehat dan prima. 
+                                                         Setiap mahasiswa diwajibkan untuk makan di kantin tiga kali setiap harinya.</p>
+                                                        <p>Dalam pelaksanaan makan, mahasiswa dilatih juga untuk memiliki manner. Etika makan yang berlaku adalah sebagai berikut:
+
+                                                            a. Mahasiswa berpakaian rapi dan bersih.
+                                                            b. Mengikuti tata cara makan yang baik (table manner):
+                                                            c. Menggunakan sendok dan garpu.
+                                                            d. Mulut tertutup rapat pada saat mengunyah makanan.
+                                                            e. Tidak menimbulkan bunyi dari peralatan makan.
+                                                            f. Berbicara sewajarnya ( tidak terlalu keras sehingga tidak mengganggu orang lain).
+                                                            g. Mengambil makanan secukupnya dan menghabiskannya tanpa sisa.</p></div>
+                                                    <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                                                </div>
+                                            <div class="image-container">
+                                                                        <div class="image-info">
+                                                                            <h3 style="color: rgb(15, 15, 15);">Perpustakaan  </h3>
+                                                                            <img src="./IMAGE/f11.jpg" alt="Gambar 1">
+                                                                                            <p>Perpustakaan Politeknik Informatika Del (PI Del) berdiri sejak tanggal 9 Januari 2002 dengan sistem pelayanan  open acces (terbuka).
+                                                                                                 Selanjutnya berubah nama seiring dengan berubahnya status Politeknik menjadi Institut sejak tahun 2013. 
+                                                                                                 Perpustakaan berganti nama menjadi Perpustakaan Institut Teknologi Del. 
+                                                                                                 Perpustakaan Institut Teknologi Del memiliki fungsi utama yaitu fungsi pendidikan.
+                                                                                                  Pengadaan koleksi dan pengembangan minat baca internal dan 
+                                                                                                  eksternal Institut Teknologi Del dilakukan sebagai bagian dari kegiatan diseminasi kegiatan peningkatan  minat baca.</p></div>
+                                                                                            <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                                                                                        </div>
+                                                                                        <div class="image-container">
+                                                                                            <div class="image-info">
+                                                                                                <h3 style="color:rgb(15, 15, 15);">Ruang Belajar</h3>
+                                                                                                <img src="./IMAGE/f12.jpg" alt="Gambar 1">
+                                                                                                                <p>Fasilitas laboratorium komputasi dimaksudkan sebagai sarana kerja, pendidikan, penelitian maupun pengabdian pada masyarakat.
+                                                                                                                     Kepada para pengguna diharapkan pengertian dan kesadarannya untuk menjaga keutuhan dan keamanan peralatan yang ada,
+                                                                                                                      serta berperan dalam menciptakan suasana akademik yang lebih berhasil guna.
+                                                                                                                       Kesadaran ini hendaknya diterapkan terhadap semua peralatan sarana dan prasarana yang dimiliki
+                                                                                                                        oleh Institut Teknologi Del dan semua sistem komputasi lain yang dapat diakses melalui jaringan komunikasi yang tersedia.</p>
+                                                                                                                    <p>Adapun fasilitas yang disediakan adalah:
+                                                                                                                        – 1 Unit PC yang dikhususkan dipakai oleh operator
+                                                                                                                        – Headphone sebanyak 10 buah
+                                                                                                                        – 1 buah infokus
+                                                                                                                        – Dilengkapi dengan meja dan kursi</p></div>
+                                                                                                                <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="pusat-bahasa">
+                                                                                                            <div class="text-info">
+                                                                                                                <h3>Pusat Bahasa</h3>
+                                                                                                                <p>The Language Center at Del Institute of Technology provides some programs and services for English skills development and for documents translations. Services for interpreting is also provided as requested.
+
+                                                                                                                    For individual English skills development, it is initially for preparation to sit an English test either for national or International standard tests. The most wanted English Proficiency Test, TOEFL institutional test, is provided as requested and also provided every year for a fix date to the third year students of IT Del.
+                                                                                                                    
+                                                                                                                    Some other services for English professional development are also provided and are grouped into some classes as follows:
+                                                                                                                    
+                                                                                                                    English for Communication
+                                                                                                                    TOEFL Test Preparation
+                                                                                                                    IELTS Test Preparation
+                                                                                                                    English for Nursing
+                                                                                                                    English for Information Technology
+                                                                                                                    English for Administration and Secretary
+                                                                                                                    English for Oil and Gas</p>
+
+                                                                                                                    <p>These courses can be ordered in person or for a group of people sharing the same interest for a specific course.
+                                                                                                                        Those above mentioned services are offered not only to Del students and staff but also to the general public in the local community and beyond.
+                                                                                                                        For further inquiries, please contact:
+                                                                                                                        Monalisa Pasaribu via email to monalisa.pasaribu@del.ac.id or call (0632) 331234
+                                                                                                                        TOEFL Institutional Test (TOEFL ITP) in IT Del Campus
+                                                                                                                        IT Del has administered TOEFL ITP Test (Test of English as a Foreign Language Institutional Testing Program) since 01 June 2013 after signing the MoU between IT Del and IIEF (The Indonesian International Education Foundation). IIEF operates under the supervision of ETS America. The score of TOEFL ITP given by IIEF is the score that is officially issued by Educational Testing Service (ETS), Princeton, United States of America.</p>
+                                                                                                            </div>
+                                                                                                            <img src="./IMAGE/f12.jpg" alt="Gambar 1">
+                                                                                                        </div>
+    <footer>
+        <h3>Kontak</h3>
+        <p>Email: info@del.ac.id</p>
+        <p>Instagram: <a href="https://www.instagram.com/institut_teknologi_del/" target="_blank">@institut_teknologi_del</a></p>
+        <p>Alamat: Alamat: Institut Teknologi Del
+            Jl. Sisingamangaraja, Sitoluama
+            Laguboti, Kab. Tobasa
+            SUMUT, Indonesia
+            KODE POS: 22381</p>
+    </footer>
+</body>
+</html>

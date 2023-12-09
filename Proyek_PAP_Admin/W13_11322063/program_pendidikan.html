@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Pengumuman - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan stylesheet tambahan jika diperlukan -->
+    <style>
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: space-between;
+        flex: 1; /* Menggunakan flex untuk memastikan konten memenuhi tinggi layar */
+    }
+
+    .form-container,
+    .image-container {
+        width: 40%;
+        /* Sesuaikan lebar image-container sesuai kebutuhan */
+        padding: 20px;
+        margin: 20px;
+        background-color: #ffffff;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .image-container {
+        background-color: rgb(179, 201, 240); /* Warna latar belakang judul kuning */
+    }
+
+    .image-info img {
+        max-width: 100%;
+        /* Gambar akan menyesuaikan lebar container tetapi tidak melebihi lebar aslinya */
+        height: auto;
+    }
+
+    .image-info {
+        text-align: center;
+    }
+
+    .form-container label,
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-container button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px; /* Menambahkan radius sudut untuk membulatkan sudut tombol */
+        cursor: pointer;
+    }
+
+    .Submit-btn {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .hapus-btn {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .Edit-btn {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .link-container button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .link-container button:hover {
+        background-color: #2980b9;
+    }
+
+    .result-box {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        background-color: #f5f5f5;
+        display: none;
+    }
+
+    .action-box {
+        background-color: #3498db;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-around; /* Meratakan button */
+        align-items: center;
+    }
+
+    .action-box button {
+        background-color: #fff;
+        color: #3498db;
+        border: none;
+        padding: 10px 15px; /* Sesuaikan padding agar button tidak terlalu besar */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .action-box button:hover {
+        background-color: #e3f2fd; /* Warna hover yang sesuai dengan form-container */
+    }
+
+    .calendar {
+    max-width: 100px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.month {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+}
+
+.day {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.day.holiday {
+    background-color: #e74c3c; /* Warna merah untuk hari libur */
+    color: #fff;
+}
+    .form-container {
+        width: 60%; /* Menyesuaikan lebar form-container */
+        margin: 20px auto; /* Menengahkan form-container */
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+    footer {
+        background-color: #4899f0;
+        color: #fff;
+        padding: 20px;
+        margin-top: auto; /* Menempatkan footer di bagian bawah */
+    }
+    .header {
+            background-color: #4899f0;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href=''><img src="./IMAGE/logox.png" alt="Logo Del"></a>
+            <div class="title-container">
+            </div>
+            <a href='' class="title" style="color: white; font-weight: bold;">Admin Dashboard</a>
+        </div>
+    </div>
+    </div>
+    <!-- Formulir untuk membuat pengumuman -->
+    <div class="content-container">
+        <div class="form-container">
+            <h2> Kelola Program Pendidikan</h2>
+            <form id="ProgramPendidikanForm">
+                <label for="judul">Judul Konten:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="judul">Isi Konten:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="jenisFakultas">Jenis Fakultas:</label>
+                <select id="jenisFakultas" name="jenisFakultas" required>
+                    <option value="-------">-----------</option>
+                    <option value="vokasi">Fakultas Vokasi</option>
+                    <option value="industri">Fakultas Industri</option>
+                    <option value="bioproses">Fakultas Bioteknologi</option>
+                    <option value="elektro_informatika">Fakultas Elektro & Informatika</option>
+                </select>
+
+                <label for="NamaProdi">Nama Prodi:</label>
+                <select id="NamaProdi" name="NamaProdi" required>
+                    <option value="-------">-----------</option>
+                    <option value="D3 T.Informasi">D3 T.Informasi</option>
+                    <option value="D3 T.Komputer">D3 T.Komputer</option>
+                    <option value="D4 T.Rekayasa Perangkat Lunak">D4 T.Rekayasa Perangkat Lunak</option>
+                    <option value="S1 Manajemen Rekayasa">S1 Manajemen Rekayasa</option>
+                    <option value="S1 Tehnik Metalurgi"> S1 Tehnik Metalurgi</option>
+                    <option value="S1 Bioproses">S1 Bioproses</option>
+                    <option value="S1 Informasi"> S1 Informasi</option>
+                    <option value="S1 Informatika">S1 Informatika</option>
+                    <option value="S1 Teknik Elektro">S1 Teknik Elektro</option>
+                </select>
+
+                <!-- Penambahan input gambar -->
+                <label for="gambarProdi">Gambar Prodi:</label>
+                <input type="file" id="gambarProdi" name="gambarProdi" accept="image/*" required>
+
+
+                <label for="judul">Tema Kegiatan:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="judul">Isi Kegiatan:</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="Kalender Akademik">Kalender Akademik:</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+
+                <div class="action-box">
+                    <div class="button-container">
+                        <button type="button" onclick="Submit()" class="Submit-btn">Submit Prodi</button>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" onclick="HapusProdi()" class="hapus-btn">Hapus Prodi</button>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" onclick="EditProdi()" class="Edit-btn">Edit Prodi</button>
+                    </div>
+                    <div class="link-container">
+                        <a href="index.html"><button type="button">Kembali ke Dashboard</button></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Container untuk gambar dan informasi -->
+        <div class="image-container">
+            <div class="image-info">
+                <h3 style="color: rgb(15, 15, 15);">Fakultas Bioteknologi  </h3>
+                <img src="./IMAGE/foto4.jpg" alt="Gambar 1">
+                <p>VISI:
+                    Menjadikan program studi Sarjana Teknik Bioproses menjadi program studi yang unggul
+                    secara nasional dan internasional dalam bidang pendidikan, penelitian, pengembangan dan
+                    penerapan ilmu dan teknologi, serta pengabdian kepada masyarakat.</p>
+                                </div>
+                                <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                            </div>
+
+                            <div class="image-container">
+                                <div class="image-info">
+                                    <h3 style="color: rgb(15, 15, 15);">Fakultas Informatika & Teknik Electro  </h3>
+                                    <img src="./IMAGE/foto5.jpg" alt="Gambar 1">
+                                    <p>Fakultas Teknik Informatika dan Elektro (FITE) IT Del berdiri pada tahun 2013 seiring
+                                        dengan perubahan Politeknik Informatika Del (PI Del) menjadi IT Del.
+                                        Visi dan Misi FITE:
+                                        Visi:
+                                        Menjadi Fakultas Pembelajar yang unggul di bidang Informatika dan Teknik  Elektro pada
+                                        tahun 2018 di tingkat nasional.</p>
+                                                    </div>
+                                                    <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                                                </div>
+
+                                                <div class="image-container">
+                                                    <div class="image-info">
+                                                        <h3 style="color: rgb(15, 15, 15);">Fakultas Informatika & Teknik Electro  </h3>
+                                                        <img src="./IMAGE/foto6.jpg" alt="Gambar 1">
+                                                        <p>Pendidikan vokasi merupakan jenjang pendidikan pertama di Institut Teknologi Del sejak berdiri pada tahun 2001
+                                                            (dahulu bernama Politeknik Informatika Del). Vokasi merupakan pendidikan tinggi dengan fokus pada praktik kerja yang dapat
+                                                            menunjang keahlian di bidang studi tertentu.</p>
+                                                                        </div>
+                                                                        <!-- Tambahkan bagian konten lainnya sesuai kebutuhan -->
+                                                                    </div>
+    </div
+    ><footer>
+        <h3>Kontak</h3>
+        <p>Email: info@del.ac.id</p>
+        <p>Instagram: <a href="https://www.instagram.com/institut_teknologi_del/" target="_blank">@institut_teknologi_del</a></p>
+        <p>Alamat: Institut Teknologi Del
+            Jl. Sisingamangaraja, Sitoluama
+            Laguboti, Kab. Tobasa
+            SUMUT, Indonesia
+            KODE POS: 22381</p>
+    </footer>
+</body>
+</html>

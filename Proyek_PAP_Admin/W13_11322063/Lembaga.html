@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Informasi Lembaga - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan stylesheet tambahan jika diperlukan -->
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .header {
+            background-color: #4899f0;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-container,
+        .image-container {
+            width: 40%;
+            /* Sesuaikan lebar image-container sesuai kebutuhan */
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .image-container {
+            background-color: #fff; /* Warna latar belakang judul kuning */
+        }
+
+        .image-info img {
+            max-width: 100%;
+            /* Gambar akan menyesuaikan lebar container tetapi tidak melebihi lebar aslinya */
+            height: auto;
+        }
+
+        .image-info {
+            text-align: center;
+        }
+
+        .form-container label,
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-container button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px; /* Menambahkan radius sudut untuk membulatkan sudut tombol */
+        cursor: pointer;
+    }
+
+
+
+    .link-container button:hover {
+        background-color: #2980b9;
+    }
+
+    .result-box {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        background-color: #f5f5f5;
+        display: none;
+    }
+
+    .action-box {
+        background-color: #3498db;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-around; /* Meratakan button */
+        align-items: center;
+    }
+
+    .action-box button {
+        background-color: #fff;
+        color: #3498db;
+        border: none;
+        padding: 10px 15px; /* Sesuaikan padding agar button tidak terlalu besar */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .action-box button:hover {
+        background-color: #e3f2fd; /* Warna hover yang sesuai dengan form-container */
+    }
+        .form-container {
+            width: 100%;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        
+    .image-container-medium {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff; /* Warna latar belakang putih */
+    padding: 20px; /* Sesuaikan padding sesuai kebutuhan */
+    border: 2px solid #fff; /* Contoh: tambahkan border */
+    border-radius: 10px; /* Contoh: tambahkan border-radius */
+    margin-top: 20px; /* Jarak antara "Dashboard" dan "image-container-medium" */
+    margin-bottom: 20px; /* Jarak antara "image-container-medium" dan elemen berikutnya */
+}
+
+.dashboard-item-medium {
+    flex: 1;
+    background-color: rgb(179, 201, 240); /* Dark Purple */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: rgb(15, 15, 15);
+    margin-bottom: 20px; /* Jarak antara setiap dashboard-item-medium */
+}
+
+.dashboard-item-medium img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.dashboard-item-medium h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.dashboard-item-medium p {
+    font-size: 14px;
+}
+
+.dashboard-section {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-right: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href=''><img src="./IMAGE/logox.png" alt="Logo Del"></a>
+            <a href='' class="title" style="color: white; font-weight: bold;">Admin Dashboard</a>
+        </div>
+    </div>
+    </div>
+    <!-- Formulir untuk membuat pengumuman -->
+    <div class="content-container">
+        <div class="form-container">
+            <h2>Tambah Informasi Lembaga</h2>
+            <form id="pengumumanForm">
+                <label for="judul">Judul :</label>
+                <input type="text" id="judul" name="judul" required>
+
+                <label for="isi">Isi :</label>
+                <textarea id="isi" name="isi" rows="4" required></textarea>
+
+                <label for="tanggal">Tanggal :</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+
+                <label for="gambar">Gambar :</label>
+                <input type="file" id="gambar" name="gambar">
+
+                <!-- Tambahkan input untuk tanggal atau atribut lainnya jika diperlukan -->
+            </form>
+
+            <!-- Box yang menampilkan pengumuman berhasil dibuat -->
+            <div class="result-box" id="resultBox">
+                <p>Informasi lembaga berhasil dibuat!</p>
+            </div>
+
+            <!-- Box berwarna biru untuk tombol aksi -->
+            <div class="action-box">
+                <button onclick="window.location.href='index.html'">Kembali ke Dashboard</button>
+                <button type="button" onclick="editPengumuman()">Edit Lembaga</button>
+                <button type="button" onclick="hapusPengumuman()">Hapus Lembaga</button>
+                <button type="button" onclick="buatPengumuman()">Buat Lembaga</button>
+            </div>
+        </div>
+
+        <div class="image-container-medium">
+            <!-- Image di sebelah kiri -->
+            <div class="dashboard-item-medium">
+                <img src="./IMAGE/f20.jpg" alt="Image 4">
+                <h3>Jenderal TNI (Purn.) Luhut B</h3>
+                <p>Jenderal TNI (Purn.) Luhut B. Pandjaitan mendirikan Yayasan Simargala pada tanggal 30 Agustus 2001 di Jakarta.
+                     Simargala adalah nama desa kelahiran beliau di Huta Namora, Kecamatan Silaen, Kabupaten Toba Samosir,
+                     Sumatera Utara. Pendirian Yayasan Simargala dilandasi oleh keinginan luhur untuk meningkatkan keterampilan 
+                     dan kesejahteraan masyarakat perdesaan yang kurang tersentuh pembangunan. Tekad yang kuat untuk berpartisipasi 
+                     pada program pemerintahan dalam bidang pendidikan, sosial, kemanusiaan, seni dan budaya, dan kelestarian lingkungan.</p>
+            </div>
+    
+            <!-- Image di sebelah kanan -->
+            <div class="dashboard-item-medium">
+                <img src="./IMAGE/f17.jpg" alt="Image 5">
+                <h3>IT DEL</h3>
+                <p>Peletakan batu pertama pembangunan gedung PI Del dilaksanakan pada tanggal 15 Maret 2001.
+                    PI Del didirikan oleh Jenderal TNI (Purn.) Luhut B. Pandjaitan, yang pada saat itu masih 
+                    menjabat sebagai Menteri Perindustrian dan Perdagangan. Di samping turut berperan sebagai inisiator penggerak pembangunan di Tapanuli,
+                     PI Del juga diharapkan dapat menginkubasi lahirnya para wiratekno (technopreneur) baru di bidang teknologi informasi dan komputer.
+                   Alasan mengapa PI Del didirikan di desa pelosok Sitoluama, menurut Luhut Pandjaitan yakni:
+                    adanya keinginan untuk memberikan kesempatan kepada masyarakat pedesaan, pelosok untuk sama-sama dapat menikmati pendidikan yang berkualitas.</p>
+            </div>
+        </div>
+
+                        </div>
+                        <footer style="background-color: #4899f0; color: #fff; padding: 20px;">
+                            <h3>Kontak</h3>
+                            <p>Email: info@del.ac.id</p>
+                            <p>Instagram: <a href="https://www.instagram.com/institut_teknologi_del/" target="_blank">@institut_teknologi_del</a></p>
+                            <p>Alamat: Alamat: Institut Teknologi Del
+                                Jl. Sisingamangaraja, Sitoluama
+                                Laguboti, Kab. Tobasa
+                                SUMUT, Indonesia
+                                KODE POS: 22381</p>
+                        </footer>
+                    </body>
+                    </html>

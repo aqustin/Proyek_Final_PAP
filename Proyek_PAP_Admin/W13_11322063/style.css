@@ -1,0 +1,196 @@
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: rgb(64, 117, 197);
+    color: #fff;
+    padding: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.title-container {
+    margin-left: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-panel {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    grid-template-columns: repeat(5, 1fr); /* Membuat lima kolom sejajar */
+    display: grid;
+    gap: 20px;
+}
+
+.centered-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Navigation Menu Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Search Box Styles */
+.search-box {
+    margin-top: 10px;
+}
+#searchsubmit {
+    background-color: #14193d;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Social Icons Styles */
+.social-icons a {
+    margin-right: 10px;
+}
+
+/* Form Styles */
+input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.logo-search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+form-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #14193d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0d1330;
+}
+
+/* Tautan Kembali Styles */
+.link-container a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+.link-container a:hover {
+    background-color: #333;
+    color: #fff;
+}
+.daftar-pengumuman {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.pengumuman-item {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}  .user-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#userChart {
+    width: 300px;
+    height: 200px;
+}
+
